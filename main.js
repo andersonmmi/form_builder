@@ -100,41 +100,36 @@ function form_first_name(i){
 
   let first = formData[i];
   let firstField = document.getElementById('fields');
-
-
   switch(formData[i].id){
-
     case "user-language":
       let languageField = document.createElement('select');
       firstField.appendChild(languageField);
-
       //Here is where I start my loop for language options//
       console.log(formData[i].options);
       for (k=0;k<formData[i].options.length;k++){
         option = document.createElement('option');
         languageField.appendChild(option);
-        option.setAttribute('label',formData[i].options[k].label);
+        option.setAttribute('label',`${formData[i].options[k].label}`);
         option.setAttribute('value',formData[i].options[k].value);
-
-        console.log(formData[i].options[k]);
+        option.setAttribute('icon',`${formData[i].icon}`)
+        // console.log(formData[i].options[k]);
       }
-      console.log(formData[i].id);
+      // console.log(formData[i].id);
       break;
-
     case "user-comment":
       let textArea = document.createElement('textarea');
       firstField.appendChild(textArea);
       textArea.setAttribute("rows","8");
       textArea.setAttribute("cols","55");
-      console.log(formData[i].id);
+      // console.log(formData[i].id);
       break;
-
     default:
       let firstLabel = document.createElement('input')
       firstField.appendChild(firstLabel);
       firstLabel.setAttribute("type",formData[i].type);
-      firstLabel.setAttribute("id",formData[i].id)
-      firstLabel.setAttribute("placeholder",formData[i].label)
+      firstLabel.setAttribute("id",formData[i].id);
+      firstLabel.setAttribute("placeholder",`${formData[i].label}`);
+      firstLabel.setAttribute("icon",`${formData[i].icon}`)
   }
 }
 
